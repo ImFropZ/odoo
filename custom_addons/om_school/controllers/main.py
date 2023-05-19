@@ -12,9 +12,9 @@ class School(http.Controller):
         return request.render("om_school.students", {
             'students': students_record
         })
-    
+
     @http.route("/foo", auth="public")
     def student(self, **kw):
         students_record = request.env['school.student'].sudo().search([])
-        
+
         return "json.dump(students_record)"

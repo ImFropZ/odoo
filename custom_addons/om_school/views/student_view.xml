@@ -5,6 +5,9 @@
         <field name="model">school.student</field>
         <field name="arch" type="xml">
             <form string="">
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
                 <sheet>
                     <group string="Student">
                         <group>
@@ -17,6 +20,11 @@
                         </group>
                     </group>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
             </form>
         </field>
     </record>

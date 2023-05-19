@@ -6,7 +6,7 @@
     'author': 'Lim Tangmeng',
     'sequence': 0,
     'description': """School Management Description""",
-    'depends': [],
+    'depends': ["mail"],
     'data': [
         # Security
         'security/ir.model.access.csv',
