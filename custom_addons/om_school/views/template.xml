@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <template id="students" name="Students">
+    <xpath expr="." position="inside">
+      <link rel="stylesheet" href="/om_school/static/src/css/om_school.css" />
+    </xpath>
+    <t t-call="website.layout">
+      <t t-foreach="students" t-as="student">
+        <div class="container">
+          <h1>Name: <t t-esc="student.name" /></h1>
+          <h1>Gender: <t t-esc="student.gender" /></h1>
+          <h1>Age: <t t-esc="student.age" /></h1>
+        </div>
+      </t>
+    </t>
+  </template>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="school_classroom_view_form" model="ir.ui.view">
+        <field name="name">school.classroom.view.form</field>
+        <field name="model">school.classroom</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>Classroom</h1>
+                    <group>
+                        <field name="name" string="Class name" />
+                        <field name="schedule" string="Schedule" />
+                        <field name="duration" string="Duration" />
+                    </group>
+                    <notebook>
+                        <page name="teachers" string="Teachers">
+                            <field name="teachers" string="Teachers">
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                    <field name="age" />
+                                    <field name="gender" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="students" string="Students">
+                            <field name="students" string="Students">
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                    <field name="age" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_classroom_view_calendar" model="ir.ui.view">
+        <field name="name">school.classroom.view.calendar</field>
+        <field name="model">school.classroom</field>
+        <field name="arch" type="xml">
+            <calendar string="Active Class" date_start="schedule" mode="month" date_delay="duration"
+                quick_add="False">
+                <field name="name" string="Name" />
+            </calendar>
+        </field>
+    </record>
+
+    <record id="school_classroom_view_tree" model="ir.ui.view">
+        <field name="name">school.classroom.view.tree</field>
+        <field name="model">school.classroom</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" string="Name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_classroom_action" model="ir.actions.act_window">
+        <field name="name">Classrooms</field>
+        <field name="res_model">school.classroom</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new classroom
+            </p>
+        </field>
+    </record>
+</odoo>

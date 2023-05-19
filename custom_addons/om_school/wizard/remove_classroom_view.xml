@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="remove_classroom_wizard_view_form" model="ir.ui.view">
+        <field name="name">remove.classroom.wizard.view.form</field>
+        <field name="model">remove.classroom.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="classroom_id" />
+                    <field name="reason" />
+                </group>
+                <footer>
+                    <button string="Confirm"
+                        name="confirm"
+                        type="object"
+                        class="btn-primary" />
+
+                    <button string="Cancel"
+                        special="cancel"
+                        class="btn-secondary" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="remove_classroom_action" model="ir.actions.act_window">
+        <field name="name">Remove Classroom</field>
+        <field name="res_model">remove.classroom.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new classroom
+            </p>
+        </field>
+    </record>
+</odoo>

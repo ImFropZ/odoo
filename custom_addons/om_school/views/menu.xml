@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <menuitem id="school_menu_root"
+    name="School"
+    web_icon="om_school,static/description/icon.svg"
+    sequence="0"
+  />
+
+  <!-- People Category  -->
+
+  <menuitem id="school_people_menu"
+    name="People"
+    parent="school_menu_root"
+    sequence="10"
+  />
+
+  <menuitem id="school_teacher_menu"
+    name="Teacher"
+    action="school_teacher_action"
+    parent="school_people_menu"
+    sequence="10"
+  />
+
+  <menuitem id="menu_school_students"
+    name="Student"
+    action="school_student_action"
+    parent="school_people_menu"
+    sequence="20"
+  />
+
+  <!-- Classroom Category  -->
+
+  <menuitem id="school_classrooms_root"
+    name="Classroom"
+    action="school_classroom_action"
+    parent="school_menu_root"
+    sequence="20"
+  />
+
+  <menuitem id="menu_school_classroom"
+    name="Classroom"
+    action="school_classroom_action"
+    parent="school_classrooms_root"
+    sequence="10"
+  />
+
+  <menuitem id="menu_remove_classroom"
+    name="Remove Classroom"
+    action="remove_classroom_action"
+    parent="school_classrooms_root"
+    sequence="100"
+  />
+
+  <!-- Appointment -->
+
+  <menuitem id="menu_school_appointment"
+    name="Appointment"
+    action="school_appointment_action"
+    parent="school_menu_root"
+    sequence="30"
+  />
+
+</odoo>

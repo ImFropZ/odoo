@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="school_teacher_view_form" model="ir.ui.view">
+        <field name="name">school.teacher.view.form</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group string="Teacher">
+                        <group>
+                            <field name="name" />
+                            <field name="age" />
+                        </group>
+                        <group>
+                            <field name="picture" widget="image" class="oe_avatar" />
+                            <field name="gender" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_teacher_view_tree" model="ir.ui.view">
+        <field name="name">school.teacher.view.tree</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Name" />
+                <field name="age" string="Age" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_teacher_view_search" model="ir.ui.view">
+        <field name="name">school.teacher.view.search</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="school_teacher_action" model="ir.actions.act_window">
+        <field name="name">Teachers</field>
+        <field name="res_model">school.teacher</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a student
+            </p>
+        </field>
+    </record>
+</odoo>
