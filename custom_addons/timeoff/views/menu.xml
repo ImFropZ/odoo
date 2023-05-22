@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <menuitem id="timeoff_menu_root"
+    name="Time Off"
+    web_icon="timeoff,static/description/icon.svg"
+    sequence="0"
+  />
+
+  <menuitem id="my_timeoff_menu"
+    name="My Time Off"
+    parent="timeoff_menu_root"
+    sequence="10"
+  />
+
+  <menuitem id="timeoff_dashboard_menu"
+    name="Dashboard"
+    parent="my_timeoff_menu"
+    sequence="10"
+  />
+
+  <menuitem id="timeoff_request_menu"
+    name="Request"
+    action="timeoff_request_action"
+    parent="my_timeoff_menu"
+    sequence="20"
+  />
+</odoo>

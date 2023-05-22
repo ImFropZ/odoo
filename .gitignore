@@ -1,2 +1,4 @@
 odoo
-venv/Lib/site-packages
+**/_pycache__
+venv
+.idea
