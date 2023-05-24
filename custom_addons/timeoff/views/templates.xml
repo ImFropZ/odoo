@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_snippet" name="Custom Snippet" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_effect']/div[@class='o_panel_body']" position="inside">
+            <t t-call="timeoff.hello_world_template" />
+        </xpath>
+    </template>
+
+    <template id="hello_world_template" name="Snippet">
+        <div class="container">
+            <h1>Hello, {{ user.name }}!</h1>
+            <p>You have {{ user.unread_messages }} unread messages.</p>
+            <ul> {% for message in user.messages %} <li>{{ message }}</li> {% endfor %} </ul>
+        </div>
+    </template>
+</odoo>
