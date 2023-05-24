@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_snippets" name="Custom Snippets" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_effect']/div[@class='o_panel_body']" position="inside">
+            <t t-snippet="custom_snippets.s_dynamic_category" />
+        </xpath>
+    </template>
+</odoo>

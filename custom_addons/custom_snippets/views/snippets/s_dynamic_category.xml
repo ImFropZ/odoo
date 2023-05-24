@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_dynamic_category" name="Dynamic Category">
+        <section>
+            <div class="container">
+                <h3 class="text-center">Dynamic Category</h3>
+                <div class="o_dynamic_category o_not_editable" />
+            </div>
+        </section>
+    </template>
+
+    <template id="s_dynamic_category_card" name="Dynamic Category Card">
+        <t t-foreach="categories" t-as="category">
+            <div
+                style="width: 10rem; height: 10rem; display: flex; justify-content: center; align-items: center;">
+                <h1>
+                    <t t-esc="category['id']" /> : <t t-esc="category['name']" />
+                </h1>
+            </div>
+        </t>
+    </template>
+</odoo>
