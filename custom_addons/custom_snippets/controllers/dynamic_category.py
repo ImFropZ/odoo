@@ -1,14 +1,11 @@
 from odoo import http
+from odoo.http import request
 
-class DynamicCategorySnippets(http.Controller):
-    @http.route(["/snippets/category"], type="json", auth="public", website=True)
-    def category(self):
-        categories = http.request.env["product.public.category"].search([])
-        data = []
-        for category in categories:
-            field = category.read(['id','name'])
-            data.append(field)
-
-        return http.request.env['ir.ui.view']._render_template('custom_snippets.s_dynamic_category_card', {
-            "categories": data
-        })
+class Sales(http.Controller):
+   @http.route(['/total_product_sold'], type="json", auth="public")
+   def sold_total(self):
+       sale_obj = request.env['sale.order'].sudo().search([
+           ('state', 'in', ['done', 'sale']),
+       ])
+       total_sold = sum(sale_obj.mapped('order_line.product_uom_qty'))
+       return total_sold

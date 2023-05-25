@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <template id="basic_snippet" name="Basic Snippet">
+        <section class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Basic Snippet</h1>
+                    <p>This is a basic snippet that is used to test the basic functionality of the
+                        snippets.</p>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="dynamic_basic_snippet" name="Dynamic Snippet">
+        <section class="container dynamic_snippet_blog">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Dynamic Snippet</h1> Total Products Sold: <span id="total_sold" />
+                </div>
+            </div>
+        </section>
+    </template>
+
     <template id="s_dynamic_category" name="Dynamic Category">
         <section>
             <div class="container">
                 <h3 class="text-center">Dynamic Category</h3>
-                <div class="o_dynamic_category o_not_editable" />
+                <div class="o_dynamic_category o_not_editable">
+                    <!-- <t t-call="website.snippet.s_dynamic_category" /> -->
+                </div>
             </div>
         </section>
     </template>
