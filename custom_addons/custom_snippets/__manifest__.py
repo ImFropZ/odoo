@@ -19,7 +19,12 @@
     ],
     'demo': [],
     'installable': True,
-    'assets': {},
+    'assets': {
+        'web.assets_frontend': [
+            '/custom_snippets/static/src/snippets/s_dynamic_category/000.js',
+            '/custom_snippets/static/src/snippets/s_basic/000.js'
+        ]
+    },
     'application': True,
     'license': 'LGPL-3',
 }
