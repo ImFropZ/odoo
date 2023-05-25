@@ -13,16 +13,13 @@
         # Wizard
 
         # Views
+        'views/snippets/s_basic.xml',
         'views/snippets/s_dynamic_category.xml',
         'views/snippets/snippets.xml',
     ],
     'demo': [],
     'installable': True,
-    'assets': {
-        'web.assets_frontend': [
-            'custom_snippets/static/src/snippets/s_dynamic_category/000.js'
-        ]
-    },
+    'assets': {},
     'application': True,
     'license': 'LGPL-3',
 }
