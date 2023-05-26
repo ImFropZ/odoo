@@ -1,13 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="dynamic_category_snippet" name="Dynamic Snippet">
+    <template id="dynamic_category_snippet" name="Dynamic Category">
         <section class="container dynamic_snippet_category">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Dynamic Snippet</h1> Total Products Sold: <span id="total_sold_1" />
+                    <h1>Dynamic Category</h1> Total Products Sold: <span id="total_sold_1" />
                 </div>
             </div>
         </section>
+    </template>
+
+    <!-- <template id="dynamic_category_snippet_options" inherit_id="website.snippet_options"
+        name="Dynamic Category Snippet Options">
+        <xpath expr="." position="inside">
+
+            <div data-selector=".dynamic_snippet_category">
+                <t t-set="domain" t-translation="off">["|", ["website_id", "=", false],
+                    ["website_id", "=", <t t-out="current_website.id" />]]</t>
+            </div>
+
+        </xpath>
+    </template> -->
+
+    <template id="dynamic_category_snippet_options" inherit_id="website.snippet_options"
+        name="Dynamic Category Snippet Options">
+        <xpath expr="." position="inside">
+            <div data-selector=".dynamic_snippet_category">
+                <div class="snippet-option">
+                    <label>Message:</label>
+                    <input type="text" data-option-name="message" placeholder="Enter a message" />
+                </div>
+            </div>
+        </xpath>
     </template>
 
     <record id="custom_snippets.s_dynamic_category_000_js" model="ir.asset">

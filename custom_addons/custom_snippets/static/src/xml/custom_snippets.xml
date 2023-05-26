@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template xml:space="preserve">
+    <t t-name="custom_snippets.CatagoryContainer">
+        <div style="display: flex; gap: 2rem;">
+            <t t-foreach="categories" t-as="category">
+                <div style="height: 10rem; width: 10rem; background-color: black; color: white;">
+                    <h1><t t-esc="category['id']"/>:<t t-esc="category['name']"/></h1>
+                </div>
+            </t>
+        </div>
+    </t>
+</template>

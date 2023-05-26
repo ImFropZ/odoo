@@ -1,11 +1,13 @@
+console.log("LOAD from Basic");
+
 odoo.define("custom_snippets.dynamic_snippet_blog", function (require) {
   var PublicWidget = require("web.public.widget");
   var rpc = require("web.rpc");
+
   var Dynamic = PublicWidget.Widget.extend({
     selector: ".dynamic_snippet_blog",
     start: function () {
       var self = this;
-      console.log(self);
 
       rpc
         .query({

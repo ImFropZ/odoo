@@ -21,8 +21,9 @@
     'installable': True,
     'assets': {
         'web.assets_frontend': [
+            '/custom_snippets/static/src/xml/custom_snippets.xml',
+            '/custom_snippets/static/src/snippets/s_basic/000.js',
             '/custom_snippets/static/src/snippets/s_dynamic_category/000.js',
-            '/custom_snippets/static/src/snippets/s_basic/000.js'
         ]
     },
     'application': True,
