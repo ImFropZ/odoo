@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="dynamic_category_snippet" name="Dynamic Category">
-        <section class="container dynamic_snippet_category">
+        <section class="container dynamic_snippet_category" data-category-names="">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Dynamic Category</h1> Total Products Sold: <span id="total_sold_1" />
+                    <h1>Dynamic Category</h1>
+                    <span id="total_sold_1" />
                 </div>
             </div>
         </section>
     </template>
 
-    <!-- <template id="dynamic_category_snippet_options" inherit_id="website.snippet_options"
-        name="Dynamic Category Snippet Options">
-        <xpath expr="." position="inside">
-
-            <div data-selector=".dynamic_snippet_category">
-                <t t-set="domain" t-translation="off">["|", ["website_id", "=", false],
-                    ["website_id", "=", <t t-out="current_website.id" />]]</t>
-            </div>
-
-        </xpath>
-    </template> -->
-
     <template id="dynamic_category_snippet_options" inherit_id="website.snippet_options"
         name="Dynamic Category Snippet Options">
         <xpath expr="." position="inside">
-            <div data-selector=".dynamic_snippet_category">
-                <div class="snippet-option">
-                    <label>Message:</label>
-                    <input type="text" data-option-name="message" placeholder="Enter a message" />
-                </div>
+            <div data-js="DynamicCategoryOptions" data-selector=".dynamic_snippet_category"
+                data-no-preview="true">
+                <!-- <we-button data-log-stuff="Hello World">Log stuff</we-button> -->
+                <we-input string="Filter-Out category names" class="o_we_large"
+                    data-name="category_names_opt"
+                    data-attribute-name="categoryNames" data-no-preview="true"
+                    data-select-data-attribute=""
+                    placeholder="e.g. desk, boxes"
+                    title="Comma-separated list of parts of category names" />
             </div>
         </xpath>
     </template>
 
+    <record id="custom_snippets.s_dynamic_category_scss" model="ir.asset">
+        <field name="name">Dynamic Category 000 SCSS</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">custom_snippets/static/src/snippets/s_dynamic_category/000.scss</field>
+    </record>
+
+    <record id="custom_snippets.s_dynamic_category_options" model="ir.asset">
+        <field name="name">Dynamic Category Options</field>
+        <field name="bundle">website.assets_editor</field>
+        <field name="path">custom_snippets/static/src/snippets/s_dynamic_category/options.js</field>
+    </record>
+
     <record id="custom_snippets.s_dynamic_category_000_js" model="ir.asset">
-        <field name="name">Basic snippet 000 JS</field>
+        <field name="name">Dynamic Category 000 JS</field>
         <field name="bundle">web.assets_frontend</field>
         <field name="path">custom_snippets/static/src/snippets/s_dynamic_category/000.js</field>
     </record>

@@ -2,11 +2,19 @@
 
 <template xml:space="preserve">
     <t t-name="custom_snippets.CatagoryContainer">
-        <div style="display: flex; gap: 2rem;">
+        <div class="category-container">
             <t t-foreach="categories" t-as="category">
-                <div style="height: 10rem; width: 10rem; background-color: black; color: white;">
-                    <h1><t t-esc="category['id']"/>:<t t-esc="category['name']"/></h1>
-                </div>
+                <a t-att-href="category['website_url']">
+                    <div class="category-container__category">
+                        <t t-if="category.image">
+                            <img t-attf-src="data:image/jpeg;base64,{{category.image}}" class="category__image" t-att-alt="category['name']"/>
+                        </t>
+                        <t t-else="">
+                            <img t-attf-src="https://dummyimage.com/128x128/f8f6f7/f8f6f7" class="category__image" t-att-alt="category['name']"/>
+                        </t>
+                        <p><t t-esc="category['name']"/></p>
+                    </div>
+                </a>
             </t>
         </div>
     </t>

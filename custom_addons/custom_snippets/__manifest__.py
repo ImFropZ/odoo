@@ -6,7 +6,7 @@
     'author': 'Lim Tangmeng',
     'sequence': 0,
     'description': """Custom Snippet Description""",
-    'depends': ["website", "website_sale", "sale"],
+    'depends': ["website", "website_sale", "sale", "web_editor"],
     'data': [
         # Security
 
@@ -22,8 +22,6 @@
     'assets': {
         'web.assets_frontend': [
             '/custom_snippets/static/src/xml/custom_snippets.xml',
-            '/custom_snippets/static/src/snippets/s_basic/000.js',
-            '/custom_snippets/static/src/snippets/s_dynamic_category/000.js',
         ]
     },
     'application': True,

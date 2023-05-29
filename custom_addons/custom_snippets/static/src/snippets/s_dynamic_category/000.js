@@ -12,17 +12,25 @@ odoo.define("custom_snippets.dynamic_category_snippet", function (require) {
     selector: ".dynamic_snippet_category",
     start: function () {
       var self = this;
+
       console.log(self);
+
+      var websiteIdDomain = wUtils.websiteDomain(this);
+      var filterOutCategories = self.$el
+        .attr("data-category-names")
+        .split(",")
+        .map((val) => {
+          return ["name", "not ilike", val];
+        });
 
       rpc
         .query({
           route: "/get_product_category",
           params: {
-            domain: wUtils.websiteDomain(this),
+            domain: [...websiteIdDomain, ...filterOutCategories],
           },
         })
         .then(function (result) {
-          console.log(result);
           self.$("#total_sold_1").html(
             QWeb.render("custom_snippets.CatagoryContainer", {
               categories: result,

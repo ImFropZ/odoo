@@ -16,11 +16,21 @@ class CustomSnippetsDynamicCategory(http.Controller):
     def product_category(self, domain=None, **kwargs):
         try:
             if domain:
-                category_obj = request.env['product.public.category'].sudo().search(domain)
+                category_obj = request.env['product.public.category'].search(domain)
             else:
-                category_obj = request.env['product.public.category'].sudo().search([])
+                category_obj = request.env['product.public.category'].search([])
 
-            categories = category_obj.read(['id', 'name'])
+            categories = category_obj.read(['id', 'name', 'image_1920'])
+
+            for category in categories:
+                if category.get('image_1920'):
+                    category['image'] = category.get('image_1920')
+                    category.pop('image_1920', None)
+                else:
+                    category['image'] = False
+
+                category['website_url'] = f"/shop/category/{category.get('id')}"
+
             return categories
 
         except ValidationError as e:
