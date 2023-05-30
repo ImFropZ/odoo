@@ -3,15 +3,7 @@ from odoo import http
 from odoo.http import request
 from odoo.exceptions import ValidationError
 
-class CustomSnippetsDynamicCategory(http.Controller):
-    @http.route(['/total_product_sold'], type="json", auth="public")
-    def sold_total(self):
-        sale_obj = request.env['sale.order'].sudo().search([
-            ('state', 'in', ['done', 'sale']),
-        ])
-        total_sold = sum(sale_obj.mapped('order_line.product_uom_qty'))
-        return total_sold                    
-   
+class CustomSnippetsDynamicCategory(http.Controller):                   
     @http.route(['/get_product_category'], type="json", auth="public")
     def product_category(self, domain=None, **kwargs):
         try:
@@ -37,4 +29,31 @@ class CustomSnippetsDynamicCategory(http.Controller):
             error_message = {'error': str(e)}
             return request.make_response(json.dumps(error_message), headers=[('Content-Type', 'application/json')])
 
-       
+    @http.route(['/get_product_category_row'], type="json", auth="public")
+    def product_category_row(self, domain=None, **kwargs):
+        try:
+            if domain:
+                category_obj = request.env['product.public.category'].search(domain, order='id asc')
+            else:
+                category_obj = request.env['product.public.category'].search([], order='id asc')
+
+            categories = category_obj.read(['name'])
+
+            response = []
+
+            for category in categories:
+                product_obj = request.env['product.template'].search([('public_categ_ids', 'in', [category['id']])], limit=5, order="id asc")
+                products = product_obj.read(['name'])
+
+                response.append({
+                    'category_id': category['id'],
+                    'category_name': category['name'],
+                    'products': products
+                })
+
+            return response
+
+
+        except ValidationError as e:
+            error_message = {'error': str(e)}
+            return request.make_response(json.dumps(error_message), headers=[('Content-Type', 'application/json')])

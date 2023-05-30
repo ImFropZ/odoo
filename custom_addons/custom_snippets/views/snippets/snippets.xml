@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="custom_snippets" name="Custom Snippets" inherit_id="website.snippets" priority="8">
-        <xpath expr="//div[@id='snippet_feature']//t[@t-snippet][last()]" position="after">
+        <xpath expr="//div[@id='snippet_effect']//t[@t-snippet][last()]" position="after">
             <t t-snippet="custom_snippets.dynamic_category_snippet" />
-            <t t-snippet="custom_snippets.dynamic_basic_snippet" />
+            <t t-snippet="custom_snippets.dynamic_category_row_snippet" />
         </xpath>
     </template>
 </odoo>

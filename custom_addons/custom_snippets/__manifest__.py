@@ -6,15 +6,15 @@
     'author': 'Lim Tangmeng',
     'sequence': 0,
     'description': """Custom Snippet Description""",
-    'depends': ["website", "website_sale", "sale", "web_editor"],
+    'depends': ["website", "website_sale", "sale", "web_editor", "product"],
     'data': [
         # Security
 
         # Wizard
 
         # Views
-        'views/snippets/s_basic.xml',
         'views/snippets/s_dynamic_category.xml',
+        'views/snippets/s_dynamic_category_row.xml',
         'views/snippets/snippets.xml',
     ],
     'demo': [],
