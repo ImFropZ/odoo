@@ -4,8 +4,8 @@
         <section class="container dynamic_snippet_category" data-category-names="">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Dynamic Category</h1>
-                    <span id="total_sold_1" />
+                    <h1 id="dynamic-category-label" class="d-none" />
+                    <span id="dynamic-cateogry-container" />
                 </div>
             </div>
         </section>
@@ -17,6 +17,12 @@
             <div data-js="DynamicCategoryOptions" data-selector=".dynamic_snippet_category"
                 data-no-preview="true">
                 <!-- <we-button data-log-stuff="Hello World">Log stuff</we-button> -->
+                <we-input string="Label" class="o_we_large"
+                    data-name="dynamic_category_label_opt"
+                    data-attribute-name="label" data-no-preview="true"
+                    data-select-data-attribute=""
+                    placeholder="e.g. Category"
+                    title="Put your label here" />
                 <we-input string="Filter-Out category names" class="o_we_large"
                     data-name="category_names_opt"
                     data-attribute-name="categoryNames" data-no-preview="true"
