@@ -9,6 +9,7 @@
     'depends': ["mail"],
     'data': [
         # Security
+        'security/school_security.xml',
         'security/ir.model.access.csv',
 
         # Wizard
